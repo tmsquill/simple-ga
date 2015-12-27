@@ -31,6 +31,11 @@ def ga():
 		agents = crossover(agents)
 		agents = mutation(agents)
 
+		if any(agent.fitness >= 90 for agent in agents):
+
+			print 'Threshold met!'
+			exit(0)
+
 def init_agents(population, length):
 
 	return [Agent(length) for _ in xrange(population)]
